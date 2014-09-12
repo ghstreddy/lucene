@@ -24,7 +24,8 @@ import org.apache.lucene.util.Version;
 
 /**
  * Lucene search demo
- * @author Guduru, Thirupathi (TG028792)
+ * 
+ * @author Guduru, Thirupathi Reddy
  */
 public class LuceneDemo {
 

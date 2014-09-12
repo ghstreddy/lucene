@@ -1,4 +1,4 @@
 lucene
 ======
 
-A repo for playing around Apache Lucene.
+Playing with Apache Lucene
