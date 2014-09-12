@@ -37,15 +37,15 @@ public class LuceneDemo {
 
         // write index
         final StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_46);
-        final Directory index = new NIOFSDirectory(new File("/Users/tg028792/git/lucene/search.lucene"));
+        final Directory index = new NIOFSDirectory(new File("search.lucene"));
         final IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_46, analyzer);
 
-        // final IndexWriter writer = new IndexWriter(index, config);
-        //
-        // writeIndex(writer, "Lucene", "Lucene Search Library");
-        // writeIndex(writer, "Lucene-Solr", "Solr Search Lucene Framework");
-        // writeIndex(writer, "Lucene-ElasticSearch", "Elastic Search Lucene Framework");
-        // writer.close(); // Committing all transaction so we can open the file for read
+         final IndexWriter writer = new IndexWriter(index, config);
+        
+         writeIndex(writer, "Lucene", "Lucene Search Library");
+         writeIndex(writer, "Lucene-Solr", "Solr Search Lucene Framework");
+         writeIndex(writer, "Lucene-ElasticSearch", "Elastic Search Lucene Framework");
+         writer.close(); // Committing all transaction so we can open the file for read
         // query
         final String query = args.length > 0 ? args[0] : "Lucene";
         final Query q = new QueryParser(Version.LUCENE_46, "title", analyzer).parse(query);
