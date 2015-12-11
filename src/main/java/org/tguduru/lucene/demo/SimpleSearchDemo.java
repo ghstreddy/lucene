@@ -1,4 +1,4 @@
-package org.lucene.demo;
+package org.tguduru.lucene.demo;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import org.apache.lucene.util.Version;
  * 
  * @author Guduru, Thirupathi Reddy
  */
-public class LuceneDemo {
+public class SimpleSearchDemo {
 
     /**
      * @param args
