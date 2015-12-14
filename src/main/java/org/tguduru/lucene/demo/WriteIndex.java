@@ -8,7 +8,6 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.util.Version;
 
 import java.io.IOException;
 
@@ -41,8 +40,8 @@ public class WriteIndex {
     }
 
     public void writeIndex(final String title, final String content) throws IOException {
-        final StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_4_9);
-        final IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_4_9, analyzer);
+        final StandardAnalyzer analyzer = new StandardAnalyzer();
+        final IndexWriterConfig config = new IndexWriterConfig(analyzer);
 
         final IndexWriter writer = new IndexWriter(directory, config);
         final Document document = new Document();

@@ -40,13 +40,13 @@ public class SearchIndex {
     }
 
     public List<String> searchIndex(final String searchString, final int topN) throws ParseException, IOException {
-        final StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_4_9);
-        final Query q = new QueryParser(Version.LUCENE_4_9, searchIndex, analyzer).parse(searchString);
+        final StandardAnalyzer analyzer = new StandardAnalyzer();
+        final Query q = new QueryParser(searchIndex, analyzer).parse(searchString);
 
         // search
         final IndexReader reader = DirectoryReader.open(directory);
         final IndexSearcher searcher = new IndexSearcher(reader);
-        final TopScoreDocCollector collector = TopScoreDocCollector.create(topN, true);
+        final TopScoreDocCollector collector = TopScoreDocCollector.create(topN);
         searcher.search(q, collector);
         final ScoreDoc[] items = collector.topDocs().scoreDocs;
         final List<String> strings = new ArrayList<>();

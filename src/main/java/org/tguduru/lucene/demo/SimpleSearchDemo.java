@@ -2,10 +2,14 @@ package org.tguduru.lucene.demo;
 
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.store.NIOFSDirectory;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.util.List;
 
 /**
@@ -23,7 +27,9 @@ public class SimpleSearchDemo {
         final String defaultIndexFileName = "lucene.index";
         final String indexName = "title";
         final String content = "content";
-        final Directory index = new NIOFSDirectory(new File(defaultIndexFileName));
+        final Path path = FileSystems.getDefault().getPath("/tmp",defaultIndexFileName);
+        System.out.println(path);
+        final Directory index = new NIOFSDirectory(path);
         // write index
         final WriteIndex writeIndex = new WriteIndex(index, indexName, content);
         writeIndex.writeIndex("Lucene", "Lucene Search Library");

@@ -31,7 +31,7 @@ public class SearchIndexTest {
         assertEquals(2, strings.size());
 
         // not found search string
-        List<String> notFoundList = searchIndex.searchIndex("noIndex", 2);
+        final List<String> notFoundList = searchIndex.searchIndex("noIndex", 2);
         assertTrue(notFoundList.isEmpty());
 
     }
