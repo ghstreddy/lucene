@@ -42,6 +42,7 @@ public class WriteIndex {
     public void writeIndex(final String title, final String content) throws IOException {
         final StandardAnalyzer analyzer = new StandardAnalyzer();
         final IndexWriterConfig config = new IndexWriterConfig(analyzer);
+        config.setOpenMode(IndexWriterConfig.OpenMode.CREATE); // this will always erase the existing index and create a new one
 
         final IndexWriter writer = new IndexWriter(directory, config);
         final Document document = new Document();

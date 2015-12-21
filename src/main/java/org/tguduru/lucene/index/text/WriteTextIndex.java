@@ -29,8 +29,8 @@ public class WriteTextIndex {
     public void writeIndex(final String content) throws IOException {
         final Analyzer standardAnalyzer = new StandardAnalyzer();
         final IndexWriterConfig indexWriterConfig = new IndexWriterConfig(standardAnalyzer);
+        indexWriterConfig.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
         final IndexWriter indexWriter = new IndexWriter(directory, indexWriterConfig);
-
         final Document document = new Document();
         final TextField textField = new TextField(indexName, content, Field.Store.YES);
         document.add(textField);
