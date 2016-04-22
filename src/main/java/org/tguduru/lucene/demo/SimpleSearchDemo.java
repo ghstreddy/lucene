@@ -28,7 +28,6 @@ public class SimpleSearchDemo {
         final String indexName = "title";
         final String content = "content";
         final Path path = FileSystems.getDefault().getPath("/tmp",defaultIndexFileName);
-        System.out.println(path);
         final Directory index = new NIOFSDirectory(path);
         // write index
         final WriteIndex writeIndex = new WriteIndex(index, indexName, content);
@@ -38,7 +37,7 @@ public class SimpleSearchDemo {
 
         // search
         final SearchIndex searchIndex = new SearchIndex(index, indexName);
-        final List<String> foundItems = searchIndex.searchIndex("lucene", 3);
+        final List<String> foundItems = searchIndex.searchIndex("Library", 10);
 
         // print searched items
         foundItems.forEach(System.out::println);

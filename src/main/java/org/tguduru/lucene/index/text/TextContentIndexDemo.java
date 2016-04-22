@@ -23,11 +23,11 @@ public class TextContentIndexDemo {
 
         //write
         final WriteTextIndex writeTextIndex = new WriteTextIndex(indexName,directory);
-        writeTextIndex.writeIndex("This is the text content that can be searched with any of this text");
+        writeTextIndex.writeIndex("This is the text Content that can be Searched with any of this text");
 
         //search
         final SearchTextIndex searchTextIndex = new SearchTextIndex(directory,indexName);
-        final List<String> strings = searchTextIndex.searchIndex("searched");
+        final List<String> strings = searchTextIndex.searchIndex("content");
         strings.forEach(System.out::println);
 
     }
